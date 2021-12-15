@@ -1,4 +1,0 @@
-baseURL = "https://yamamoto-yuta.github.io/hugo-docker-test/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "hugo-hero-theme"
