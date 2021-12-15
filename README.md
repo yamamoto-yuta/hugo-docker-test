@@ -82,3 +82,4 @@ $ docker-compose run --entrypoint "" --rm hugo bash -c "cd mysite/ && hugo serve
 - [ベースイメージの ENTRYPOINT を無効化 - Qiita](https://qiita.com/nju33/items/733e16511f3b8e739d54)
 - [Hugo + GitHub Pages / Actions でブログを公開する](https://zenn.dev/bryutus/articles/hugo-github-pages-actions)
 - [ShotaroKataoka/ShotaroKataoka.github.io: My web page.](https://github.com/ShotaroKataoka/ShotaroKataoka.github.io)
+- [gitignore/Hugo.gitignore at main · github/gitignore](https://github.com/github/gitignore/blob/main/community/Golang/Hugo.gitignore)
