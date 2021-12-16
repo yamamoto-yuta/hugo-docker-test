@@ -1,10 +1,9 @@
 name: Post article to blog
 
 on:
-  issues:
-    types:
-      - opened
-      - edited
+  push:
+    branches:
+      - develop-post-blog-workflow
 
 jobs:
   post:
@@ -13,4 +12,3 @@ jobs:
       - name: Get issue
         run: |
           echo "test"
-          echo {{ github.event.issue.title }}
