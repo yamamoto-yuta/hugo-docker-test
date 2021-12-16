@@ -1,0 +1,15 @@
+name: Post article to blog
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  post:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Get issue
+        run: |
+        echo "hello"
+        echo {{ github.event.issue.title }}
