@@ -54,17 +54,11 @@ GitHub のブランチルール：
 $ docker-compose run --entrypoint "" --rm hugo bash -c "hugo new site mysite"
 ```
 
-テーマのインストール。今回は [Hero](https://themes.gohugo.io/themes/hugo-hero-theme/) を使用した。
+テーマのインストールと適用。適用方法はテーマによって異なる場合があるので確認すること。今回、テーマは [Universal](https://themes.gohugo.io/themes/hugo-universal-theme/) を使用した。
 
 ```
 $ git init
-$ git submodule add https://github.com/zerostaticthemes/hugo-hero-theme.git ./mysite/themes/hugo-hero-theme
-```
-
-`mysite/config.toml` にテーマ設定を追記。
-
-```toml
-theme = "hugo-hero-theme"
+$ git submodule add https://github.com/devcows/hugo-universal-theme ./mysite/themes/hugo-universal-theme
 ```
 
 テーマが適用できたか確認。
