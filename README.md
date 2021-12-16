@@ -11,6 +11,50 @@ $ git clone <THIS REPOSITORY>
 $ docker-compose up -d --build
 ```
 
+## 記事の投稿
+
+記事を作成する。今回は `test.md` という名前で作成する。
+
+```
+$ docker-compose run --entrypoint "" --rm hugo bash -c "cd mysite/ && hugo new blog/test.md"
+```
+
+すると、 `blog/` ディレクトリ内に下記の内容が記載された `test.md` が作成される。
+
+```
++++
+title = "Test"
+date = 2021-12-16T12:34:44Z
+tags = [""]
+categories = [""]
+banner = "img/banners/banner-default.jpg"
+draft = false
++++
+
+Write your article here.
+```
+
+作成されたファイルを編集して記事を執筆する。
+
+ヘッダ部分で変更する項目及びその役割は次の通り。
+
+- `title`
+  - 記事のタイトルを入力する。
+- `categories`
+  - カテゴリを入力する
+- `banner`
+  - サムネイル画像を指定する。
+  - 初期値としてデフォルト画像が指定されている。
+- `draft`
+  - 下書きかどうかを指定する。
+  - 初期値は true。
+
+記事が書けたらビルドする。
+
+```
+$ docker-compose run --entrypoint "" --rm hugo bash -c "cd mysite/ && hugo"
+```
+
 ## サイト構築
 
 ### はじめに
