@@ -3,7 +3,7 @@ languageCode = "en-us"
 theme = "hugo-universal-theme" 
 title = "Universal" 
 # Enable comments by entering your Disqus shortname
-disqusShortname = "devcows"
+disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 
