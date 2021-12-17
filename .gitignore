@@ -1,0 +1,15 @@
+# Generated files by hugo
+mysite/public/
+mysite/resources/_gen/
+mysite/assets/jsconfig.json
+mysite/hugo_stats.json
+
+# Executable may be added to repository
+mysite/hugo.exe
+mysite/hugo.darwin
+mysite/hugo.linux
+
+# Temporary lock file while building
+mysite/.hugo_build.lock
+
+.ssh-key/

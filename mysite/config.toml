@@ -1,0 +1,146 @@
+baseURL = "https://yamamoto-yuta.github.io/hugo-docker-test/" # Configure URL. if using gh-pages https://github.com/<username>/hugo-universal-theme URL: https://<username>.github.io/hugo-universal-theme/
+languageCode = "en-us" 
+theme = "hugo-universal-theme" 
+title = "Universal" 
+# Enable comments by entering your Disqus shortname
+disqusShortname = ""
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = ""
+
+# number of words of summarized post content (default 70)
+summaryLength = 70
+
+# Define the number of posts per page
+paginate = 10
+
+[menu]
+
+# Main menu
+[[menu.main]]
+identifier = "menu.home"
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "menu.news"
+name = "News"
+url = "/news/"
+weight = 2
+
+[[menu.main]]
+identifier = "menu.research"
+name = "Research"
+url = "/research/"
+weight = 3
+
+[[menu.main]]
+identifier = "menu.publications"
+name = "Publications"
+url = "/publications/"
+weight = 4
+
+[[menu.main]]
+identifier = "menu.members"
+name = "Members"
+url = "/members/"
+weight = 5
+
+[[menu.main]]
+identifier = "access"
+name = "Access"
+url = "/access/"
+weight = 6
+
+[params]
+author = "DevCows"
+defaultDescription = "Site template made by devcows using hugo"
+defaultKeywords = []
+mainSections = ["news"]
+viewMorePostLink = "/news/"
+
+# Social media
+default_sharing_image = "img/sharing-default.png" 
+facebook_site = "" # the Facebook handle of your site ('https://www.facebook.com/HANDLE')
+twitter_site = "" # the Twitter handle of your site (without the '@')
+
+# Google Maps widget: If `googleMapsApiKey` is not set, no key will be passed to Google (which likely results in a broken map widget).
+enableGoogleMaps = true
+googleMapsApiKey = "AIzaSyAv7Sza8NSp9_l_g8G2vlo0H4ydEPn_2jY"
+
+latitude = "-12.043333"
+longitude = "-77.028333"
+
+# Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
+style = "green"
+
+copyright = "Copyright &copy 2021 - , 任意の組織; all rights reserved."
+
+# Format dates with Go's time formatting
+date_format = "2006/01/02"
+
+disabled_logo = true
+logo_text = "任意の組織"
+
+contact_url = "/access"
+logo = "img/logo.png"
+logo_small = "img/logo-small.png"
+
+[permalinks]
+news = "/news/:year/:month/:day/:filename/"
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+categories = true
+search = true
+tags = true
+
+[params.carouselCustomers]
+auto_play = false
+items = 6
+pagination_speed = 1000
+slide_speed = 2000
+
+[params.carouselTestimonals]
+auto_play = false
+items = 4
+pagination_speed = 1000
+slide_speed = 2000
+
+[params.carouselHomepage]
+# All carousel items are defined in their own files. You can find example items
+# at 'exampleSite/data/carousel'.
+# For more informtion take a look at the README.
+auto_play = true
+enable = true
+pagination_speed = 1000
+slide_speed = 2000
+
+[params.features]
+cols = 3 # Default: 3, Available values 2,3,4,6
+enable = true 
+# All features are defined in their own files. You can find example items
+# at 'exampleSite/data/features'.
+# For more informtion take a look at the README.
+
+[params.see_more]
+enable = true
+icon = "far fa-file-alt"
+link_text = "Check other homepages"
+link_url = "#"
+subtitle = "We have prepared for you more than 40 different HTML pages, including 5 variations of homepage."
+title = "Do you want to see more?"
+
+[params.recent_posts]
+enable = true
+hide_summary = true
+subtitle = ""
+title = "News"
+
+[params.footer.recent_posts]
+enable = false
+
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"
