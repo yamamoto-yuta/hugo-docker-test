@@ -1,5 +1,5 @@
 name: Submit free
-description:
+description: 自由に記事を執筆したい場合はこのテンプレートを利用してください。
 title: "ここに記事タイトルを入力"
 labels: ["article", "free"]
 assignees:
