@@ -10,7 +10,8 @@ jobs:
     steps:
       - name: Debug
         run: |
-          echo '${{ toJson(github.event.issue) }}'
+          echo '${{ github.event.issue.title }}'
+          echo '${{ toJson(github.event.issue.title) }}'
 
       # # checkout to the commit that has been pushed
       # - uses: actions/checkout@v2
