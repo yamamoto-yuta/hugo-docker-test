@@ -28,10 +28,7 @@ jobs:
           cd ./mysite/
           hugo --minify
 
-      # push the generated content into the `main` (former `master`) branch.
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          #publish_branch: main # if your main branch is `master` use that here.
-          publish_dir: ./mysite/public
+      # move public directory
+      - name: Move to docs/
+        run: |
+          mv ./mysite/public ./docs/
