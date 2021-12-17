@@ -31,6 +31,8 @@ jobs:
       # move public directory
       - name: Move to docs/
         run: |
+          rm -rf ./docs/
+          mkdir ./docs/
           mv ./mysite/public/* ./docs/
 
       # push
