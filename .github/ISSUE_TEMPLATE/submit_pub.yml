@@ -90,7 +90,7 @@ body:
       required: false
 
   - type: input
-    id: paper-url
+    id: slide-url
     attributes:
       label: スライドURL
       description: （公開してOK＆公開したい場合のみ）発表スライドへのリンクを入力してください。
