@@ -31,5 +31,4 @@ jobs:
       # move public directory
       - name: Move to docs/
         run: |
-          pwd
-          ls
+          mv ./mysite/public/* ./docs/
