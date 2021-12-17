@@ -8,18 +8,18 @@ jobs:
   post:
     runs-on: ubuntu-18.04
     steps:
+      # checkout to the commit that has been pushed
+      - uses: actions/checkout@v2
+        with:
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+
       # generate article
       - name: Generate article
         run: |
           cd ./mysite/
           hugo new news/{{ github.event.issues.title }}.md
           echo {{ github.event.issues.body }} >> ./mysite/content/news/{{ github.event.issues.title }}.md
-
-      # checkout to the commit that has been pushed
-      - uses: actions/checkout@v2
-        with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       # install Hugo
       - name: Setup Hugo
