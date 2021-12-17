@@ -21,13 +21,19 @@ jobs:
           hugo-version: "0.83.1"
           extended: true
 
-      # generate article
-      - name: Generate article
-        run: |
-          cd ./mysite/
-          hugo new "news/${{ github.event.issues.title }}.md"
-          echo "${{ github.event.issues.body }}"" >> ""./mysite/content/news/${{ github.event.issues.title }}.md"
-
       - name: Debug
         run: |
-          cat ""./mysite/content/news/${{ github.event.issues.title }}.md"
+          echo ${{ github.event.issues.title }}
+          echo news/${{ github.event.issues.title }}.md
+          echo ${{ github.event.issues.body }}
+
+      # # generate article
+      # - name: Generate article
+      #   run: |
+      #     cd ./mysite/
+      #     hugo new "news/${{ github.event.issues.title }}.md"
+      #     echo "${{ github.event.issues.body }}"" >> ""./mysite/content/news/${{ github.event.issues.title }}.md"
+
+      # - name: Debug
+      #   run: |
+      #     cat "./mysite/content/news/${{ github.event.issues.title }}.md"
