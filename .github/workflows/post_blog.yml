@@ -23,9 +23,7 @@ jobs:
 
       - name: Debug
         run: |
-          echo ${{ github.event.issues.title }}
-          echo news/${{ github.event.issues.title }}.md
-          echo ${{ github.event.issues.body }}
+          echo '${{ github.event.issues.title }}'
 
       # # generate article
       # - name: Generate article
