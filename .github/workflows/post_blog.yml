@@ -14,13 +14,6 @@ jobs:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      # generate article
-      - name: Generate article
-        run: |
-          cd ./mysite/
-          hugo new news/{{ github.event.issues.title }}.md
-          echo {{ github.event.issues.body }} >> ./mysite/content/news/{{ github.event.issues.title }}.md
-
       # install Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -28,25 +21,13 @@ jobs:
           hugo-version: "0.83.1"
           extended: true
 
-      # build website
-      - name: Build
+      # generate article
+      - name: Generate article
         run: |
           cd ./mysite/
-          hugo --minify
+          hugo new news/{{ github.event.issues.title }}.md
+          echo {{ github.event.issues.body }} >> ./mysite/content/news/{{ github.event.issues.title }}.md
 
-      # move public directory
-      - name: Move to docs/
+      - name: Debug
         run: |
-          rm -rf ./docs/
-          mkdir ./docs/
-          mv ./mysite/public/* ./docs/
-
-      # push
-      - name: Push
-        run: |
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git add ./docs/
-          git commit -m "ビルド結果を格納";
-          git push origin HEAD:${GITHUB_REF};
+          cat ./mysite/content/news/{{ github.event.issues.title }}.md
