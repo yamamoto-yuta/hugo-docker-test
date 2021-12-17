@@ -11,7 +11,7 @@ jobs:
       - name: Debug
         run: |
           echo '${{ github.event.issue.title }}'
-          echo '${{ toJson(github.event.issue.title) }}'
+          echo news/'${{ github.event.issue.title }}'
 
       # # checkout to the commit that has been pushed
       # - uses: actions/checkout@v2
