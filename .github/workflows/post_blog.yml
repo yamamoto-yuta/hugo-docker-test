@@ -8,22 +8,22 @@ jobs:
   post:
     runs-on: ubuntu-18.04
     steps:
-      # checkout to the commit that has been pushed
-      - uses: actions/checkout@v2
-        with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
-
-      # install Hugo
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.83.1"
-          extended: true
-
       - name: Debug
-        run: |
-          echo '${{ github.event.issues.title }}'
+          run: |
+            echo '${{ toJson(github.event) }}'
+            
+      # # checkout to the commit that has been pushed
+      # - uses: actions/checkout@v2
+      #   with:
+      #     submodules: true # Fetch Hugo themes (true OR recursive)
+      #     fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+
+      # # install Hugo
+      # - name: Setup Hugo
+      #   uses: peaceiris/actions-hugo@v2
+      #   with:
+      #     hugo-version: "0.83.1"
+      #     extended: true
 
       # # generate article
       # - name: Generate article
