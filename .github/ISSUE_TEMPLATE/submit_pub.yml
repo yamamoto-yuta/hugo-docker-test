@@ -1,62 +1,99 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
+name: Submit publications
+description: 学会に出たり、論文投稿したりした場合はこのテンプレートを利用してください。
+title: "ここに記事タイトルを入力（例：XXXX学会にて発表）"
+labels: ["article", "publications"]
 assignees:
   - octocat
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
   - type: input
-    id: contact
+    id: author
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: 著者
+      description: |
+        著者を入力してください。
+        例）
+        ・英語論文の場合： Taro Yamada, Sam A. Mchombo
+        ・日本語論文の場合： 山田太郎, Sam A. Mchombo
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: タイトル
+      description: 論文名・発表タイトルを入力してください。
+    validations:
+      required: true
+
+  - type: input
+    id: journal
+    attributes:
+      label: 論文誌名・学会名
+      description: 論文誌・学会名を入力してください。
+      placeholder: ex. International Conference on Industrial Engineering and Engineering Management (IEEM)
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: 発表年
+      description: 発表年を入力してください。
+      placeholder: ex. 2021
+    validations:
+      required: true
+
+  - type: input
+    id: volume
+    attributes:
+      label: 巻数
+      description: （論文投稿の場合のみ）巻数を入力してください。
+      placeholder: ex. 63
     validations:
       required: false
-  - type: textarea
-    id: what-happened
+
+  - type: input
+    id: number
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: 号
+      description: （論文投稿の場合のみ）号を入力してください。
+      placeholder: ex. 4
+    validations:
+      required: false
+
+  - type: input
+    id: pages
+    attributes:
+      label: ページ数
+      description: （論文投稿の場合のみ）ページ数を入力してください。
+      placeholder: ex. 741-782
+    validations:
+      required: false
+
+  - type: textarea
+    id: contents
+    attributes:
+      label: 本文
+      description: |
+        記事の本文を入力してください。
+        例）山田太郎がIEEE SSCI 2019にて発表を行いました。
     validations:
       required: true
-  - type: dropdown
-    id: version
+
+  - type: input
+    id: paper-url
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+      label: 論文URL
+      description: （公開してOK＆公開したい場合のみ）論文へのリンクを入力してください。
+      placeholder: https://...
     validations:
-      required: true
-  - type: dropdown
-    id: browsers
+      required: false
+
+  - type: input
+    id: paper-url
     attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: スライドURL
+      description: （公開してOK＆公開したい場合のみ）発表スライドへのリンクを入力してください。
+      placeholder: https://...
+    validations:
+      required: false
