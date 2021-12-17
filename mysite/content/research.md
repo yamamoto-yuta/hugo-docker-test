@@ -6,3 +6,4 @@ draft: false
 
 research page
 hoge
+bar
