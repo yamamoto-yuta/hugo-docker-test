@@ -34,10 +34,14 @@ jobs:
           mv ./mysite/public/* ./docs/
           ls ./docs/
 
-      # push the generated content into the `main` (former `master`) branch.
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          #publish_branch: main # if your main branch is `master` use that here.
-          publish_dir: ./docs
+      # push
+      - name: Push
+        run: |
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          if (git diff --shortstat | grep '[0-9]'); then \
+            git add .; \
+            git commit -m "GitHub Actions から差分を Push"; \
+            git push origin HEAD:${GITHUB_REF}; \
+          fi
