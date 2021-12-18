@@ -26,6 +26,10 @@ jobs:
         run: |
           cd ./mysite/
           hugo new news/'${{ github.event.issue.title }}'.md
+          
+      # write body
+      - name: Write body
+        run: |
           echo '${{ github.event.issue.body }}' >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
 
       # push
