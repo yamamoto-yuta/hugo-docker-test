@@ -32,6 +32,10 @@ jobs:
             touch ${{ env.article_file }}
           fi
 
+      - name: check article file
+        run: |
+          cat ${{ env.article_file }}
+
       # Update article
       - name: Update article
         run: |
