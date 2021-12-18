@@ -1,5 +1,4 @@
-name: post-article
-
+name: Post article to news
 on:
   issues:
     types: [opened, edited]
