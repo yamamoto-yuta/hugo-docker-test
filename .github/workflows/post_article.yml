@@ -32,21 +32,44 @@ jobs:
             touch ${{ env.article_file }}
           fi
 
-      - name: check article file
+      - name: debug
         run: |
-          ls ./mysite/content/news/
-          cat ${{ env.article_file }}
+          echo '+++' >> ${{ env.article_file }}
 
-      # Update article
-      - name: Update article
+      - name: debug
+        run: |
+          echo 'title = ${{ github.event.issue.title }}' >> ${{ env.article_file }}
+          
+      - name: debug
+        run: |
+          echo 'date = {{ .Date }}' >> ${{ env.article_file }}
+          
+      - name: debug
+        run: |
+          echo 'categories = [""]' >> ${{ env.article_file }}
+          
+      - name: debug
+        run: |
+          echo 'draft = false' >> ${{ env.article_file }}
+          
+      - name: debug
         run: |
           echo '+++' >> ${{ env.article_file }}
-          echo 'title = ${{ github.event.issue.title }}' >> ${{ env.article_file }}
-          echo 'date = {{ .Date }}' >> ${{ env.article_file }}
-          echo 'categories = [""]' >> ${{ env.article_file }}
-          echo 'draft = false' >> ${{ env.article_file }}
-          echo '+++' >> ${{ env.article_file }}
+
+      - name: debug
+        run: |
           echo -e '${{ github.event.issue.body }}' >> ${{ env.article_file }}
+          
+#       # Update article
+#       - name: Update article
+#         run: |
+#           echo '+++' >> ${{ env.article_file }}
+#           echo 'title = ${{ github.event.issue.title }}' >> ${{ env.article_file }}
+#           echo 'date = {{ .Date }}' >> ${{ env.article_file }}
+#           echo 'categories = [""]' >> ${{ env.article_file }}
+#           echo 'draft = false' >> ${{ env.article_file }}
+#           echo '+++' >> ${{ env.article_file }}
+#           echo -e '${{ github.event.issue.body }}' >> ${{ env.article_file }}
 
       - name: check article file
         run: |
