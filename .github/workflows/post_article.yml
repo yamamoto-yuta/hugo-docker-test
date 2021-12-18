@@ -23,9 +23,13 @@ jobs:
           hugo-version: "0.83.1"
           extended: true
 
-      - name: check issue id
+      - name: check file exist
         run: |
-          echo '${{ github.event.issue.number }}'
+          if [ -e ./mysite/content/news/'${{ github.event.issue.number }}'.md ]; then
+            echo Exist: ./mysite/content/news/'${{ github.event.issue.number }}'.md
+          else
+            echo Not exist: ./mysite/content/news/'${{ github.event.issue.number }}'.md
+          fi
 
 #       # Generate article
 #       - name: Generate article
