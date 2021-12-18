@@ -7,7 +7,7 @@ on:
 jobs:
   post:
     runs-on: ubuntu-18.04
-    if: contains(github.event.issue.labels.*.name, 'article') }}
+    if: ${{ contains(github.event.issue.labels.*.name, 'article') }}
     steps:
       # checkout to the commit that has been pushed
       - uses: actions/checkout@v2
