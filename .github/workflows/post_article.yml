@@ -4,6 +4,8 @@ on:
     types:
       - opened
       - edited
+env:
+  article_file: ./mysite/content/news/'${{ github.event.issue.number }}'.md
 
 jobs:
   post-article:
@@ -23,19 +25,28 @@ jobs:
           hugo-version: "0.83.1"
           extended: true
 
-      # Generate article
-      - name: Generate article
+      # Create article
+      - name: Create article
         run: |
-          if [ ! -e ./mysite/content/news/'${{ github.event.issue.number }}'.md ]; then
-            echo Not exist: ./mysite/content/news/'${{ github.event.issue.number }}'.md
+          if [ ! -e '${{ article_file }}' ]; then
+            touch '${{ article_file }}'
           fi
-
-#       # Generate article
-#       - name: Generate article
-#         run: |
-#           cd ./mysite/
-#           hugo new news/'${{ github.event.issue.title }}'.md
-
+      
+      # Update article
+      - name: Update article
+        run: |
+          echo "+++' >> '${{ article_file_path }}'
+          echo "title = '${{ github.event.issue.title }}'" >> '${{ article_file_path }}'
+          echo "date = {{ .Date }}" >> '${{ article_file_path }}'
+          echo "categories = [\"\"]" >> '${{ article_file_path }}'
+          echo "draft = false" >> '${{ article_file_path }}'
+          echo "+++" >> '${{ article_file_path }}'
+          echo -e "'${{ github.event.issue.body }}'" >> '${{ article_file_path }}'
+          
+      - name: check article file
+        run: |
+          cat '${{ article_file_path }}'
+          
 #       # write body
 #       - name: Write body
 #         run: |
