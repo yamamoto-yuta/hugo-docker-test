@@ -9,7 +9,7 @@ body:
   - type: input
     id: permalink
     attributes:
-      label: permalink / パーマリンク
+      label: [permalink] パーマリンク
       description: |
         パーマリンクを設定してください。記事のタイトルに関連したパーマリンクを設定しましょう。
         例）記事のタイトル「IEEE SSCI 2021に参加しました」　→　パーマリンク「attend-ieee-ssci-2021」
@@ -20,7 +20,7 @@ body:
   - type: textarea
     id: body
     attributes:
-      label: body / 本文
+      label: [body] 本文
       description: |
         記事の本文を入力してください。
     validations:
