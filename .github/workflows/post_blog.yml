@@ -5,7 +5,7 @@ on:
     types: [opened, edited]
 
 jobs:
-  post:
+  post-article:
     runs-on: ubuntu-18.04
     if: ${{ contains(github.event.issue.labels.*.name, 'article') }}
     steps:
@@ -27,7 +27,7 @@ jobs:
         run: |
           cd ./mysite/
           hugo new news/'${{ github.event.issue.title }}'.md
-          
+
       # write body
       - name: Write body
         run: |
