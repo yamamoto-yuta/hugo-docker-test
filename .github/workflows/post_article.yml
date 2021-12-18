@@ -41,7 +41,7 @@ jobs:
           echo "categories = [\"\"]" >> ${{ env.article_file }}
           echo "draft = false" >> ${{ env.article_file }}
           echo "+++" >> ${{ env.article_file }}
-          echo -e "${{ github.event.issue.body }}" >> ${{ env.article_file }}
+          echo -e '${{ github.event.issue.body }}' >> ${{ env.article_file }}
 
       - name: check article file
         run: |
