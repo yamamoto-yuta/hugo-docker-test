@@ -5,7 +5,7 @@ on:
       - opened
       - edited
 env:
-  article_file: ./mysite/content/news/'${{ github.event.issue.number }}'.md
+  article_file: ./mysite/content/news/${{ github.event.issue.number }}.md
 
 jobs:
   post-article:
@@ -28,29 +28,24 @@ jobs:
       # Create article
       - name: Create article
         run: |
-          if [ ! -e '${{ env.article_file }}' ]; then
-            touch '${{ env.article_file }}'
+          if [ ! -e ${{ env.article_file }} ]; then
+            touch ${{ env.article_file }}
           fi
 
       # Update article
       - name: Update article
         run: |
-          echo "+++" >> '${{ env.article_file }}'
-          echo "title = '${{ github.event.issue.title }}'" >> '${{ env.article_file }}'
-          echo "date = {{ .Date }}" >> '${{ env.article_file }}'
-          echo "categories = [\"\"]" >> '${{ env.article_file }}'
-          echo "draft = false" >> '${{ env.article_file }}'
-          echo "+++" >> '${{ env.article_file }}'
-          echo -e "'${{ github.event.issue.body }}'" >> '${{ env.article_file }}'
+          echo "+++' >> ${{ env.article_file }}
+          echo "title = ${{ github.event.issue.title }}" >> ${{ env.article_file }}
+          echo "date = {{ .Date }}" >> ${{ env.article_file }}
+          echo "categories = [\"\"]" >> ${{ env.article_file }}
+          echo "draft = false" >> ${{ env.article_file }}
+          echo "+++" >> ${{ env.article_file }}
+          echo -e "${{ github.event.issue.body }}" >> ${{ env.article_file }}
 
       - name: check article file
         run: |
-          cat '${{ env.article_file }}'
-
-#       # write body
-#       - name: Write body
-#         run: |
-#           echo -e "'${{ github.event.issue.body }}'" >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
+          cat ${{ env.article_file }}
 
 #       # push
 #       - name: Push
