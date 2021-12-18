@@ -34,6 +34,7 @@ jobs:
 
       - name: check article file
         run: |
+          ls ./mysite/content/news/
           cat ${{ env.article_file }}
 
       # Update article
