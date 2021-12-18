@@ -29,8 +29,6 @@ jobs:
 
       - name: Debug
         run: |
-          which tree
-          apt-get install tree
           ls
           ls ./mysite/
           ls ./mysite/content/
