@@ -58,7 +58,7 @@ jobs:
 
       - name: debug
         run: |
-          echo -e '${{ github.event.issue.body }}' >> ${{ env.article_file }}
+          echo ${{ github.event.issue.body }} >> ${{ env.article_file }}
           
 #       # Update article
 #       - name: Update article
