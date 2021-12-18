@@ -35,13 +35,13 @@ jobs:
       # Update article
       - name: Update article
         run: |
-          echo "+++' >> '${{ article_file_path }}'
-          echo "title = '${{ github.event.issue.title }}'" >> '${{ article_file_path }}'
-          echo "date = {{ .Date }}" >> '${{ article_file_path }}'
-          echo "categories = [\"\"]" >> '${{ article_file_path }}'
-          echo "draft = false" >> '${{ article_file_path }}'
-          echo "+++" >> '${{ article_file_path }}'
-          echo -e "'${{ github.event.issue.body }}'" >> '${{ article_file_path }}'
+          echo "+++' >> '${{ article_file }}'
+          echo "title = '${{ github.event.issue.title }}'" >> '${{ article_file }}'
+          echo "date = {{ .Date }}" >> '${{ article_file }}'
+          echo "categories = [\"\"]" >> '${{ article_file }}'
+          echo "draft = false" >> '${{ article_file }}'
+          echo "+++" >> '${{ article_file }}'
+          echo -e "'${{ github.event.issue.body }}'" >> '${{ article_file }}'
           
       - name: check article file
         run: |
