@@ -25,7 +25,7 @@ jobs:
 
       - name: check issue id
         run: |
-          echo '${{ github.event.issue.id }}'
+          echo '${{ github.event.issue.number }}'
 
 #       # Generate article
 #       - name: Generate article
