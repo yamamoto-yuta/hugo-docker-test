@@ -7,8 +7,6 @@ on:
   workflow_run:
     workflows:
       - post-article
-    branches:
-      - main
     types:
       - completed
 
