@@ -22,7 +22,8 @@ body:
       
   - type: markdown
     attributes:
-      value: |FROMIDENTIFIER|textarea-start
+      value: |
+        |FROMIDENTIFIER|textarea-start
   - type: textarea
     id: what-happened
     attributes:
@@ -34,7 +35,8 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: |FROMIDENTIFIER|textarea-end
+      value: |
+        |FROMIDENTIFIER|textarea-end
 
   - type: dropdown
     id: version
