@@ -26,7 +26,10 @@ jobs:
         run: |
           cd ./mysite/
           hugo new news/'${{ github.event.issue.title }}'.md
+          cat ./mysite/content/news/'${{ github.event.issue.title }}'.md
 
       - name: Debug
         run: |
+          echo '${{ github.event.issue.body }}' >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
           cat ./mysite/content/news/'${{ github.event.issue.title }}'.md
+          
