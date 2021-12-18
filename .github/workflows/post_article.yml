@@ -1,4 +1,4 @@
-name: Post article to blog
+name: post-article
 
 on:
   issues:
