@@ -29,7 +29,4 @@ jobs:
 
       - name: Debug
         run: |
-          ls
-          ls ./mysite/
-          ls ./mysite/content/
-          ls ./mysite/content/news/
+          cat ./mysite/content/news/'${{ github.event.issue.title }}'.md
