@@ -6,7 +6,7 @@ on:
       - main
   workflow_run:
     workflows:
-      - post-article
+      - post_article
     branches:
       - main
     types:
