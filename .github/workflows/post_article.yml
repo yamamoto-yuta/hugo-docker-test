@@ -35,7 +35,7 @@ jobs:
       # Update article
       - name: Update article
         run: |
-          echo "+++' >> '${{ env.article_file }}'
+          echo "+++" >> '${{ env.article_file }}'
           echo "title = '${{ github.event.issue.title }}'" >> '${{ env.article_file }}'
           echo "date = {{ .Date }}" >> '${{ env.article_file }}'
           echo "categories = [\"\"]" >> '${{ env.article_file }}'
