@@ -1,43 +1,49 @@
 name: post-article
 on:
   issues:
-    types: [opened, edited]
+    types:
+      - opened
+      - edited
 
 jobs:
   post-article:
     runs-on: ubuntu-18.04
-    if: ${{ contains(github.event.issue.labels.*.name, 'article') }}
+    if: ${{ contains(github.event.issue.labels.*.name, 'article') }} # Only process issues with the 'article' label
     steps:
-      # checkout to the commit that has been pushed
+      # Checkout to the commit that has been pushed
       - uses: actions/checkout@v2
         with:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      # install Hugo
+      # Install Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.83.1"
           extended: true
 
-      # generate article
-      - name: Generate article
+      - name: check issue id
         run: |
-          cd ./mysite/
-          hugo new news/'${{ github.event.issue.title }}'.md
+          echo '${{ github.event.issue.id }}'
 
-      # write body
-      - name: Write body
-        run: |
-          echo -e "'${{ github.event.issue.body }}'" >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
+#       # Generate article
+#       - name: Generate article
+#         run: |
+#           cd ./mysite/
+#           hugo new news/'${{ github.event.issue.title }}'.md
 
-      # push
-      - name: Push
-        run: |
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git add ./mysite/content/news/; \
-          git commit -m "記事を追加"; \
-          git push origin HEAD:${GITHUB_REF}; \
+#       # write body
+#       - name: Write body
+#         run: |
+#           echo -e "'${{ github.event.issue.body }}'" >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
+
+#       # push
+#       - name: Push
+#         run: |
+#           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+#           git config --global user.name "${GITHUB_ACTOR}"
+#           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+#           git add ./mysite/content/news/; \
+#           git commit -m "記事を追加"; \
+#           git push origin HEAD:${GITHUB_REF}; \
