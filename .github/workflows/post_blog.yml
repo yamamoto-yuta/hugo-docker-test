@@ -31,7 +31,7 @@ jobs:
       # write body
       - name: Write body
         run: |
-          echo '${{ github.event.issue.body }}' >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
+          echo -e "'${{ github.event.issue.body }}'" >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
 
 #       # push
 #       - name: Push
