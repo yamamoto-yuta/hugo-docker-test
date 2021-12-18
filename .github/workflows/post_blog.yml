@@ -26,8 +26,12 @@ jobs:
         run: |
           cd ./mysite/
           hugo new news/'${{ github.event.issue.title }}'.md
-          echo '${{ github.event.issue.body }}' >> ./mysite/content/news/'${{ github.event.issue.title }}'.md
 
       - name: Debug
         run: |
-          cat ./mysite/content/news/'${{ github.event.issue.title }}'.md
+          which tree
+          apt-get install tree
+          ls
+          ls ./mysite/
+          ls ./mysite/content/
+          ls ./mysite/content/news/
