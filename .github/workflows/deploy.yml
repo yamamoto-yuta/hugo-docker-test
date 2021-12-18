@@ -1,12 +1,14 @@
-name: Deploy to GitHub Pages
+name: deploy
 
 on:
-#   push:
-#     branches:
-#       - main
+  push:
+    branches:
+      - main
   workflow_run:
     workflows:
       - post-article
+    branches:
+      - main
     types:
       - completed
 
