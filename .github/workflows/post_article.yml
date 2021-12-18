@@ -44,7 +44,7 @@ jobs:
 
       - name: debug
         run: |
-          sed -e s/"'"/'\'"\'"/g '${{ github.event.issue.body }}' >> ${{ env.article_file }}
+          echo -e "'${{ github.event.issue.body }}'" >> ${{ env.article_file }}
 
       - name: check article file
         run: |
