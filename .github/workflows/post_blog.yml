@@ -25,7 +25,7 @@ jobs:
       - name: Generate article
         run: |
           cd ./mysite/
-          hugo news/'${{ github.event.issue.title }}'.md
+          hugo new news/'${{ github.event.issue.title }}'.md
           echo '${{ github.event.issues.body }}' >> ./mysite/content/news/'${{ github.event.issues.title }}'.md
 
       - name: Debug
