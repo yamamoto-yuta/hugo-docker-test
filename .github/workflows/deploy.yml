@@ -6,7 +6,7 @@ on:
 #       - main
   workflow_run:
     workflows:
-      - post_article
+      - post-article
     types:
       - completed
 
