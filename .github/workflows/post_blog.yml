@@ -8,31 +8,26 @@ jobs:
   post:
     runs-on: ubuntu-18.04
     steps:
+      # checkout to the commit that has been pushed
+      - uses: actions/checkout@v2
+        with:
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+
+      # install Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.83.1"
+          extended: true
+
+      # generate article
+      - name: Generate article
+        run: |
+          cd ./mysite/
+          hugo news/'${{ github.event.issue.title }}'.md
+          echo '${{ github.event.issues.body }}' >> ./mysite/content/news/'${{ github.event.issues.title }}'.md
+
       - name: Debug
         run: |
-          echo '${{ github.event.issue.title }}'
-          echo news/'${{ github.event.issue.title }}'
-
-      # # checkout to the commit that has been pushed
-      # - uses: actions/checkout@v2
-      #   with:
-      #     submodules: true # Fetch Hugo themes (true OR recursive)
-      #     fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
-
-      # # install Hugo
-      # - name: Setup Hugo
-      #   uses: peaceiris/actions-hugo@v2
-      #   with:
-      #     hugo-version: "0.83.1"
-      #     extended: true
-
-      # # generate article
-      # - name: Generate article
-      #   run: |
-      #     cd ./mysite/
-      #     hugo new "news/${{ github.event.issues.title }}.md"
-      #     echo "${{ github.event.issues.body }}"" >> ""./mysite/content/news/${{ github.event.issues.title }}.md"
-
-      # - name: Debug
-      #   run: |
-      #     cat "./mysite/content/news/${{ github.event.issues.title }}.md"
+          cat ./mysite/content/news/'${{ github.event.issues.title }}.md'
