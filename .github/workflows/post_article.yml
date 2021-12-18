@@ -28,25 +28,25 @@ jobs:
       # Create article
       - name: Create article
         run: |
-          if [ ! -e '${{ article_file }}' ]; then
-            touch '${{ article_file }}'
+          if [ ! -e '${{ env.article_file }}' ]; then
+            touch '${{ env.article_file }}'
           fi
-      
+
       # Update article
       - name: Update article
         run: |
-          echo "+++' >> '${{ article_file }}'
-          echo "title = '${{ github.event.issue.title }}'" >> '${{ article_file }}'
-          echo "date = {{ .Date }}" >> '${{ article_file }}'
-          echo "categories = [\"\"]" >> '${{ article_file }}'
-          echo "draft = false" >> '${{ article_file }}'
-          echo "+++" >> '${{ article_file }}'
-          echo -e "'${{ github.event.issue.body }}'" >> '${{ article_file }}'
-          
+          echo "+++' >> '${{ env.article_file }}'
+          echo "title = '${{ github.event.issue.title }}'" >> '${{ env.article_file }}'
+          echo "date = {{ .Date }}" >> '${{ env.article_file }}'
+          echo "categories = [\"\"]" >> '${{ env.article_file }}'
+          echo "draft = false" >> '${{ env.article_file }}'
+          echo "+++" >> '${{ env.article_file }}'
+          echo -e "'${{ github.event.issue.body }}'" >> '${{ env.article_file }}'
+
       - name: check article file
         run: |
-          cat '${{ article_file_path }}'
-          
+          cat '${{ env.article_file }}'
+
 #       # write body
 #       - name: Write body
 #         run: |
