@@ -41,21 +41,14 @@ jobs:
           echo 'categories = [""]' >> ${{ env.article_file }}
           echo 'draft = false' >> ${{ env.article_file }}
           echo '+++' >> ${{ env.article_file }}
-
-      - name: debug
-        run: |
           echo -e "${{ github.event.issue.body }}" >> ${{ env.article_file }}
 
-      - name: check article file
+      # push
+      - name: Push
         run: |
-          cat ${{ env.article_file }}
-
-#       # push
-#       - name: Push
-#         run: |
-#           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-#           git config --global user.name "${GITHUB_ACTOR}"
-#           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-#           git add ./mysite/content/news/; \
-#           git commit -m "記事を追加"; \
-#           git push origin HEAD:${GITHUB_REF}; \
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add ./mysite/content/news/; \
+          git commit -m "記事を追加"; \
+          git push origin HEAD:${GITHUB_REF}; \
