@@ -15,11 +15,20 @@ jobs:
     runs-on: ubuntu-18.04
     # if: ${{ contains(github.event.issue.labels.*.name, 'article') }} # Only process issues with the 'article' label
     steps:
-      - name: check python
+      - name: ls
         run: |
           ls
+
+      - name: ls ./scripts/
+        run: |
           ls ./scripts/
+
+      - name: check python
+        run: |
           python3 -V
+
+      - name: check script
+        run: |
           python3 ./scripts/script.py ${{ github.event.issue.number }}
 
       # # Checkout to the commit that has been pushed
