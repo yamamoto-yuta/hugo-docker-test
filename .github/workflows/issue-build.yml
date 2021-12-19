@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: check python
         run: |
+          ls
+          ls ./scripts/
           python3 -V
           python3 ./scripts/script.py ${{ github.event.issue.number }}
 
