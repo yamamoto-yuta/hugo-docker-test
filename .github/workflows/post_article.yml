@@ -18,12 +18,12 @@ jobs:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      # Install Hugo
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.83.1"
-          extended: true
+#       # Install Hugo
+#       - name: Setup Hugo
+#         uses: peaceiris/actions-hugo@v2
+#         with:
+#           hugo-version: "0.83.1"
+#           extended: true
 
       # Create article
       - name: Create article
@@ -36,19 +36,19 @@ jobs:
       - name: Update article
         run: |
           echo '+++' >> ${{ env.article_file }}
-          echo 'title = ${{ github.event.issue.title }}' >> ${{ env.article_file }}
+          echo 'title = "${{ github.event.issue.title }}"'' >> ${{ env.article_file }}
           echo 'date = {{ .Date }}' >> ${{ env.article_file }}
           echo 'categories = [""]' >> ${{ env.article_file }}
           echo 'draft = false' >> ${{ env.article_file }}
           echo '+++' >> ${{ env.article_file }}
           echo -e "${{ github.event.issue.body }}" >> ${{ env.article_file }}
 
-      # push
-      - name: Push
-        run: |
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git add ./mysite/content/news/; \
-          git commit -m "記事を追加"; \
-          git push origin HEAD:${GITHUB_REF}; \
+#       # push
+#       - name: Push
+#         run: |
+#           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+#           git config --global user.name "${GITHUB_ACTOR}"
+#           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+#           git add ./mysite/content/news/; \
+#           git commit -m "記事を追加"; \
+#           git push origin HEAD:${GITHUB_REF}; \
