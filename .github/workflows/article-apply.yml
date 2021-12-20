@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  article-apply:
     runs-on: ubuntu-18.04
     steps:
       # checkout to the commit that has been pushed
