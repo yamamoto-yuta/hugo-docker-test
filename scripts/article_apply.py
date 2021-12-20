@@ -61,12 +61,13 @@ if __name__ == "__main__":
         url,
         {"state": "closed"},
     )
-
     if data.status_code != requests.codes.ok:
         print("Error: " + data.status_code)
         exit(1)
 
     issue_list = data.json()
+
+    print(len(issue_list))
 
     article_list = []
     for issue in issue_list:
