@@ -12,4 +12,7 @@ mysite/hugo.linux
 # Temporary lock file while building
 mysite/.hugo_build.lock
 
+# Python cache
+__pycache__/
+
 _WIP/
