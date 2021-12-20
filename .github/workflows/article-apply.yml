@@ -18,7 +18,7 @@ jobs:
       # Apply articles to Article DB
       - name: Apply articles to Article DB
         run: |
-          python3 ./scripts/article_apply.py ./db/article.json
+          python3 ./scripts/article_apply.py ./db/articles.json
 
       # push
       - name: Push
