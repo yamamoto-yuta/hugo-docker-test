@@ -67,8 +67,6 @@ if __name__ == "__main__":
 
     issue_list = data.json()
 
-    print([(issue["number"], issue["title"]) for issue in issue_list])
-
     article_list = []
     for issue in issue_list:
         issue_identifier = identify_issue(issue["labels"])
@@ -76,6 +74,7 @@ if __name__ == "__main__":
             ISSUE_TYPE in issue_identifier.keys()
             and issue_identifier[ISSUE_TYPE] == ISSUE_TYPE_ARTICLE
         ):
+            print(issue["number"], issue["title"])
             article_list.append(
                 {
                     "number": issue["number"],
