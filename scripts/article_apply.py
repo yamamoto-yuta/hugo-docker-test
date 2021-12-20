@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     issue_list = data.json()
 
-    print(len(issue_list))
+    print([(issue["number"], issue["title"]) for issue in issue_list])
 
     article_list = []
     for issue in issue_list:
