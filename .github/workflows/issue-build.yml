@@ -21,18 +21,6 @@ jobs:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      - name: ls
-        run: |
-          ls
-
-      - name: ls ./scripts/
-        run: |
-          ls ./scripts/
-
-      - name: check python
-        run: |
-          python3 -V
-
       - name: check script
         run: |
           python3 ./scripts/script.py ${{ github.event.issue.number }}
