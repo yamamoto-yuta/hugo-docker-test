@@ -29,6 +29,7 @@ jobs:
           git add ./db/
           git diff --exit-code -- ./db/articles.json
           if [[ $? -eq 1 ]]; then
+            echo 'diff exist'
             git commit -m "記事DBを更新";
             git push origin HEAD:${GITHUB_REF};
           fi
