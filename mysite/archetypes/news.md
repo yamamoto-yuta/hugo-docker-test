@@ -1,6 +1,5 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 date = {{ .Date }}
-categories = [""]
-draft = false
+banner = "img/banners/banner-default.jpg"
 +++
