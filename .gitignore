@@ -12,4 +12,4 @@ mysite/hugo.linux
 # Temporary lock file while building
 mysite/.hugo_build.lock
 
-.ssh-key/
+_WIP/
